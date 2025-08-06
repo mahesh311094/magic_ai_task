@@ -1,8 +1,16 @@
 A simple app built using **Flutter** as part of a technical test.
 
 ## Preview 
-<img src="screenshots/workout.png" alt="Workout Preview" width="300"/>
-<img src="screenshots/workout_list.png" alt="Workout Preview" width="300"/>
+<table>
+   <tr>
+      <td>
+         <img src="screenshots/workout.png" alt="Workout Preview" width="300"/>
+      </td>
+      <td>
+         <img src="screenshots/workout_list.png" alt="Workout List Preview" width="300"/>
+      </td>
+   </tr>
+</table>
 
 ## Features
 - Add and edit workout sessions
