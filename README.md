@@ -1,8 +1,8 @@
 A simple app built using **Flutter** as part of a technical test.
 
 ## Preview 
-![Workout Screen Preview](screenshots/workout.png)
-![Workout List Screen Preview](screenshots/workout_list.png)
+<img src="screenshots/workout.png" alt="Workout Preview" width="300"/>
+<img src="screenshots/workout_list.png" alt="Workout Preview" width="300"/>
 
 ## Features
 - Add and edit workout sessions
@@ -30,9 +30,9 @@ I used **Riverpod** for managing app-wide state.
 This balance avoids overengineering while keeping state predictable and clean.
 
 ## Third-Party Packages
-**Package - Why I used it** 
-`flutter_riverpod` - For state management 
-`uuid` - To generate unique workout IDs
+**Package - Why I used it**
+- `flutter_riverpod` - For state management
+- `uuid` - To generate unique workout IDs
 
 I didn’t use persistent storage like Hive or SharedPreferencesas, the task requirements did not explicitly specify the need for data persistence. 
 
