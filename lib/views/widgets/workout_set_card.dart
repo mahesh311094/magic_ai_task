@@ -57,6 +57,7 @@ class WorkoutSetCard extends StatelessWidget {
               children: [
                 Expanded(
                   child: TextFormField(
+                    key: Key('weightField'),
                     decoration: const InputDecoration(labelText: 'Weight (kg)'),
                     keyboardType: TextInputType.number,
                     validator: (value) {
@@ -77,6 +78,7 @@ class WorkoutSetCard extends StatelessWidget {
                 const SizedBox(width: 12),
                 Expanded(
                   child: TextFormField(
+                    key: Key('repsField'),
                     decoration: const InputDecoration(labelText: 'Repetitions'),
                     keyboardType: TextInputType.number,
                     validator: (value) {

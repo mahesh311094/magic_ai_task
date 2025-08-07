@@ -10,42 +10,54 @@ void main() {
     app.main();
     await tester.pumpAndSettle();
 
+    // Verify empty state first
+    expect(find.textContaining('No workouts recorded'), findsOneWidget);
+
     // Tap FAB to add a workout
     await tester.tap(find.byType(FloatingActionButton));
     await tester.pumpAndSettle();
 
-    // Tap add set button
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pumpAndSettle();
-
     // Enter weight
-    await tester.enterText(find.byType(TextFormField).first, '60');
+    final weightField = find.byKey(Key('weightField')).first;
+    await tester.enterText(weightField, '60');
+
     // Enter repetitions
-    await tester.enterText(find.byType(TextFormField).last, '10');
+    final repsField = find.byKey(Key('repsField')).first;
+    await tester.enterText(repsField, '10');
 
     // Save workout
     await tester.tap(find.byIcon(Icons.save));
     await tester.pumpAndSettle();
 
-    // Verify workout is listed
-    expect(find.textContaining('Workouts'), findsOneWidget);
+    // Verify workout appears in list
+    expect(find.textContaining('Workout on'), findsOneWidget);
 
     // Tap to open workout
-    await tester.tap(find.byType(ListTile));
+    await tester.tap(find.byType(ListTile).first);
     await tester.pumpAndSettle();
 
     // Add another set
     await tester.tap(find.byIcon(Icons.add));
     await tester.pumpAndSettle();
 
+    // Enter weight for second set
+    final secondWeight = find.byKey(Key('weightField')).last;
+    await tester.enterText(secondWeight, '65');
+
+    // Enter repetitions for second set
+    final secondReps = find.byKey(Key('repsField')).last;
+    await tester.enterText(secondReps, '8');
+
     // Save updated workout
     await tester.tap(find.byIcon(Icons.save));
     await tester.pumpAndSettle();
 
     // Delete workout
-    await tester.drag(find.byType(ListTile), const Offset(-500, 0));
+    await tester.drag(find.byType(ListTile).first, const Offset(-500, 0));
     await tester.pumpAndSettle();
 
+    // Verify it's deleted
     expect(find.byType(ListTile), findsNothing);
+    expect(find.textContaining('No workouts recorded'), findsOneWidget);
   });
 }
